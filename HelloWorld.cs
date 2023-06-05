@@ -3,83 +3,154 @@ using System.Threading;
 
 class Program
 {
+    private static int num1;
+
     static void Main()
     {
-        bool isValidInput = false;
-        bool isValidOperator = false;
+        bool validInput = true;
+        bool firstNum = true;
 
-        // Struct that is named "keyInfo" and is assigned when the user presses a key
-        //ConsoleKeyInfo keyInfo = Console.ReadKey();
-        //Console.WriteLine("You pressed " + keyInfo.Key);
-        //keyInfo.Key != ConsoleKey.Escape
-        //Console.ReadLine();
-
-        
-        //string uKey = int.Parse(Console.ReadKey());
-        //Console.WriteLine(uKey);
-        //Console.ReadLine();
-                while (!isValidInput)
+        while (validInput)
+        {
+            if (firstNum)
             {
                 try
                 {
-                    Console.BackgroundColor = ConsoleColor.Black;
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.Clear();
-                    Console.WriteLine(@"
- ______     ______     __         ______     __  __     __         ______     ______   ______     ______    
-/\  ___\   /\  __ \   /\ \       /\  ___\   /\ \/\ \   /\ \       /\  __ \   /\__  _\ /\  __ \   /\  == \   
-\ \ \____  \ \  __ \  \ \ \____  \ \ \____  \ \ \_\ \  \ \ \____  \ \  __ \  \/_/\ \/ \ \ \/\ \  \ \  __<   
- \ \_____\  \ \_\ \_\  \ \_____\  \ \_____\  \ \_____\  \ \_____\  \ \_\ \_\    \ \_\  \ \_____\  \ \_\ \_\ 
-  \/_____/   \/_/\/_/   \/_____/   \/_____/   \/_____/   \/_____/   \/_/\/_/     \/_/   \/_____/   \/_/ /_/ 
-                                                                                                            
-");
-                //First Number
-                Console.WriteLine("Enter your first number");
-                int num1 = Convert.ToInt32(Console.ReadLine());
-                isValidInput = true;
-                Console.WriteLine(num1);
-                
-                // Operator
-                Console.WriteLine("Select an operator: +, -, *, /");
-                string opSymbol = Console.ReadLine();
-                isValidInput = true;
-
-                    if (opSymbol == "+")
-                    {
-                        Console.WriteLine("Choose a second number");
-                        int numAdd = Convert.ToInt32(Console.ReadLine());
-                        int addTotal = num1 + numAdd;
-                        Console.WriteLine("It equals = " + addTotal);
-                    }
-                    else if (opSymbol == "-")
-                    {
-                        Console.WriteLine("Choose a second number");
-                        int numSub = Convert.ToInt32(Console.ReadLine());
-                        int subTotal = num1 - numSub;
-                        Console.WriteLine("it equals = " + subTotal);
-                    }
-                    else if (opSymbol == "*")
-                    {
-                        Console.WriteLine("Choose a second number");
-                        int numMulti = Convert.ToInt32(Console.ReadLine());
-                        int multiTotal = num1 * numMulti;
-                        Console.WriteLine("it equals = " + multiTotal);
-                    }
-                    else if (opSymbol == "/")
-                    {
-                        Console.WriteLine("Choose a second number");
-                        double numDivi = Convert.ToInt32(Console.ReadLine());
-                        double diviTotal = num1 / numDivi;
-                        Console.WriteLine("it equals = " + diviTotal);
-                    }
-                }   
-            catch (FormatException)
+                    Console.WriteLine("First number");
+                    num1 = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine(num1);
+                }
+                catch (FormatException)
                 {
-                    Console.WriteLine("Wrong input");
+                    firstNum = false;
+
+                    Console.Clear();
+                    //Console.WriteLine("FormatException");
+                    //Console.Write("Press Enter To Continue...");
+                    //ConsoleKeyInfo keyInfo = Console.ReadKey();
+                    //Console.Clear();
+                    //if (keyInfo.Key == ConsoleKey.Enter)
+                    //{
+                    //    Console.Clear();
+
+                    //}
+                    //Console.ReadKey(intercept: true); = keyInfo.Key == ConsoleKey.Enter
                 }
             }
+            else
+            {
+                
+            }
+
+            try
+            {
+                Console.WriteLine("Second number");
+                int num1 = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine(num1);
+            }
+            catch (FormatException)
+            {
+                Console.Clear();
+            }
+        }
+
         // Main
     }
 
     // Class
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Old Code
+
+//        bool isValidInput = false;
+//        bool isValidOperator = false;
+
+//        Console.BackgroundColor = ConsoleColor.Black;
+//        Console.ForegroundColor = ConsoleColor.Green;
+//        Console.WriteLine(@"
+// ______     ______     __         ______     __  __     __         ______     ______   ______     ______    
+///\  ___\   /\  __ \   /\ \       /\  ___\   /\ \/\ \   /\ \       /\  __ \   /\__  _\ /\  __ \   /\  == \   
+//\ \ \____  \ \  __ \  \ \ \____  \ \ \____  \ \ \_\ \  \ \ \____  \ \  __ \  \/_/\ \/ \ \ \/\ \  \ \  __<   
+// \ \_____\  \ \_\ \_\  \ \_____\  \ \_____\  \ \_____\  \ \_____\  \ \_\ \_\    \ \_\  \ \_____\  \ \_\ \_\ 
+//  \/_____/   \/_/\/_/   \/_____/   \/_____/   \/_____/   \/_____/   \/_/\/_/     \/_/   \/_____/   \/_/ /_/ 
+
+//");
+//        while (!isValidInput)
+//        {
+//            try
+//            {
+//                // First Number
+//                Console.WriteLine("Enter your first number");
+//                int num1 = Convert.ToInt32(Console.ReadLine());
+//                Console.Clear();
+//                isValidInput = true;
+//                Console.WriteLine(num1);
+
+
+
+//                while (!isValidOperator)
+//                {
+
+//                    // Operator
+//                    Console.WriteLine("Select an operator: +, -, *, /");
+//                    string opSymbol = Console.ReadLine();
+//                    Console.Clear();
+
+//                    if (opSymbol == "+")
+//                    {
+//                        Console.WriteLine("Choose a second number");
+//                        int numAdd = Convert.ToInt32(Console.ReadLine());
+//                        int addTotal = num1 + numAdd;
+//                        Console.WriteLine("It equals = " + addTotal);
+//                        isValidOperator = true;
+//                    }
+//                    else if (opSymbol == "-")
+//                    {
+//                        Console.WriteLine("Choose a second number");
+//                        int numSub = Convert.ToInt32(Console.ReadLine());
+//                        int subTotal = num1 - numSub;
+//                        Console.WriteLine("it equals = " + subTotal);
+//                        isValidOperator = true;
+
+//                    }
+//                    else if (opSymbol == "*")
+//                    {
+//                        Console.WriteLine("Choose a second number");
+//                        int numMulti = Convert.ToInt32(Console.ReadLine());
+//                        int multiTotal = num1 * numMulti;
+//                        Console.WriteLine("it equals = " + multiTotal);
+//                        isValidOperator = true;
+//                    }
+//                    else if (opSymbol == "/")
+//                    {
+//                        Console.WriteLine("Choose a second number");
+//                        double numDivi = Convert.ToInt32(Console.ReadLine());
+//                        double diviTotal = num1 / numDivi;
+//                        Console.WriteLine("it equals = " + diviTotal);
+//                        isValidOperator = true;
+//                    }
+//                }
+//            }
+//            catch (FormatException)
+//            {
+//                Console.WriteLine("FormatExceptionCatch");
+//                Console.Clear();
+//            }
+
+//        }
