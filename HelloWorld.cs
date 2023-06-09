@@ -7,53 +7,35 @@ class Program
 
     static void Main()
     {
-        bool validInput = true;
-        bool firstNum = true;
-
-        while (validInput)
+        Console.Write("First Number?   ");
+        int numFirst = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Choose operator: +, -, *, /");
+        string userOperator = Console.ReadLine();
+        
+        if (userOperator == "+")
         {
-            if (firstNum)
-            {
-                try
-                {
-                    Console.WriteLine("First number");
-                    num1 = Convert.ToInt32(Console.ReadLine());
-                    Console.WriteLine(num1);
-                }
-                catch (FormatException)
-                {
-                    firstNum = false;
-
-                    Console.Clear();
-                    //Console.WriteLine("FormatException");
-                    //Console.Write("Press Enter To Continue...");
-                    //ConsoleKeyInfo keyInfo = Console.ReadKey();
-                    //Console.Clear();
-                    //if (keyInfo.Key == ConsoleKey.Enter)
-                    //{
-                    //    Console.Clear();
-
-                    //}
-                    //Console.ReadKey(intercept: true); = keyInfo.Key == ConsoleKey.Enter
-                }
-            }
-            else
-            {
-                
-            }
-
-            try
-            {
-                Console.WriteLine("Second number");
-                int num1 = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine(num1);
-            }
-            catch (FormatException)
-            {
-                Console.Clear();
-            }
+            Console.Write("Choose second number   ");
+            int numPlus = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine(numFirst + numPlus);
         }
-
+        if (userOperator == "-")
+        {
+            Console.Write("Choose second number   ");
+            int numMinus = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine(numFirst - numMinus);
+        }
+        if (userOperator == "*")
+        {
+            Console.Write("Choose second number   ");
+            int numMulti = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine(numFirst * numMulti);
+        }
+        if (userOperator == "/")
+        {
+            Console.Write("Choose second number   ");
+            double numDivi = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine(numFirst / numDivi);
+        }
         // Main
     }
 
